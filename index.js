@@ -5,7 +5,9 @@ const wait = require('node:timers/promises').setTimeout;
 const { Client, Collection, GatewayIntentBits, Events } = require('discord.js');
 const { token } = require('./config.json');
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+// const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 
 // 명령어 파일들 commands폴더 뒤저서 실행해주는 코드
 client.cooldowns = new Collection();
@@ -43,8 +45,21 @@ for (const file of eventFiles) {
 
 
 //디스코드 채팅메시지 로그 기록하기 만들어보는중
+// 이거 디스코드 봇 설정에 가서 Message Content Intents 활성화 해줘야함(와 씨 소름 돋네이거 방금 copilot이 지알아서 작성함;;)
 client.on('messageCreate', (message) => {
-	console.log(message.content);
+	if (message.content === 'ping') {
+		message.reply('pong');
+	}
+	if (message.content === '오현석') {
+		message.reply('오타쿠 이세돌 팬 (이였던것)');
+	}
+	if (message.content === '조동희') {
+		message.reply('활발한 매니저 (거의 섭주급)');
+	}
+	if (message.content === '이민수') {
+		message.reply('GOAT (Greatest Of All Time)');
+	}
+	console.log(`${message.author.username}:${message.content}`);
 });
 
 client.login(token);
