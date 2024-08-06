@@ -50,11 +50,11 @@ client.on('messageCreate', (message) => {
 	if (message.content === 'ping') {
 		message.reply('pong');
 	}
-	if (message.content === '오현석') {
-		message.reply('오타쿠 이세돌 팬 (이였던것)');
+	if (message.content === 'hi') {
+		message.reply('hello');
 	}
-	if (message.content === '조동희') {
-		message.reply('활발한 매니저 (거의 섭주급)');
+	if (message.content === '던파하쉴?') {
+		message.reply('올ㅋ');
 	}
 	if (message.content === '이민수') {
 		message.reply('GOAT (Greatest Of All Time)');
