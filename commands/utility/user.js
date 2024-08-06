@@ -20,7 +20,7 @@ module.exports = {
 			.setDescription(`이 명령어는 '${interaction.user.globalName}' 가 실행했습니다. \n계정생성날짜: ${interaction.user.createdAt.getFullYear()}년 ${interaction.user.createdAt.getMonth()}월 ${interaction.user.createdAt.getDate()}일 \n서버가입날짜: ${interaction.member.joinedAt.getFullYear()}년 ${interaction.member.joinedAt.getMonth()}월 ${interaction.member.joinedAt.getDate()}일`)
 
 			.setThumbnail(interaction.user.avatarURL()) // 썸네일 이미지
-
+		await interaction.deferReply();
 		await interaction.followUp({ embeds: [exampleEmbed] });
 	},
 };
