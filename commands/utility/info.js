@@ -20,14 +20,33 @@ module.exports = {
         console.log("작동종료");
 
         const exampleEmbed = new EmbedBuilder()
+            // .setColor(0x0099FF)
+            // .setTitle(target.globalName)
+            // .setURL(target.url)
+            // .setAuthor({ name: target.username, iconURL: target.avatarURL(), url: target.url })
+            // .setDescription(`이 명령어는 '${target.globalName}' 가 실행했습니다. \n계정생성날짜: ${target.createdAt} \n서버가입날짜: ${target.joinedAt}`)
+
+
+
+            // .setThumbnail(target.avatarURL()) // 썸네일 이미지
             .setColor(0x0099FF)
             .setTitle(target.globalName)
-            .setURL(target.url)
-            .setAuthor({ name: target.username, iconURL: target.avatarURL(), url: target.url })
-            .setDescription(`이 명령어는 '${target.globalName}' 가 실행했습니다. \n계정생성날짜: ${target.createdAt} \n서버가입날짜: ${target.joinedAt}`)
-
-            .setThumbnail(target.avatarURL()) // 썸네일 이미지
+            .setURL('https://www.bing.com/')
+            .setAuthor({ name: `${target.username}`, iconURL: `${target.avatarURL()}`, url: 'https://discord.js.org' })
+            .setDescription(`(${target.username})${target.globalName}님의 정보입니다.`)
+            .setThumbnail(target.avatarURL())
+            .addFields(
+                { name: `계정생성날짜`, value: `${target.createdAt}` },
+                { name: '\u200B', value: '\u200B' },
+                { name: '서버가입날짜', value: `${target.joined_at}`, inline: true },
+                { name: '유저ID', value: target.id, inline: true },
+            )
+            .addFields({ name: 'Inline field title', value: 'Some value here', inline: true })
+            .setImage(target.avatarURL())
+            .setTimestamp()
+            .setFooter({ text: `여기까지가 ${target.globalName}님의 정보`, iconURL: target.avatarURL() });
 
         await interaction.followUp({ embeds: [exampleEmbed] });
+        console.log(target.member);
     },
 };

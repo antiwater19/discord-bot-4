@@ -59,6 +59,9 @@ client.on('messageCreate', (message) => {
 	if (message.content === '이민수') {
 		message.reply('GOAT (Greatest Of All Time)');
 	}
+	if (message.content === '집') {
+		message.reply('다치지 말고 건강하게 돌아오다오..');
+	}
 	console.log(`${message.author.username}:${message.content}`);
 });
 
