@@ -11,8 +11,10 @@
     "erlpack": "github:discord/erlpack",
     "express": "^4.18.2",
     "partial-js": "^1.1.8",
+    "request": "^2.88.2",
     "require": "^0.4.4",
     "utf-8-validate": "^6.0.3",
+    "xml-js": "^1.6.11",
     "zlib-sync": "^0.1.8"
   },
   "name": "dicobot",

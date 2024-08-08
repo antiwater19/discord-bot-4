@@ -38,7 +38,7 @@ module.exports = {
             .addFields(
                 { name: `계정생성날짜`, value: `${target.createdAt}` },
                 { name: '\u200B', value: '\u200B' },
-                { name: '서버가입날짜', value: `${target.joined_at}`, inline: true },
+                { name: '서버가입날짜', value: `${target.guild}`, inline: true },
                 { name: '유저ID', value: target.id, inline: true },
             )
             .addFields({ name: 'Inline field title', value: 'Some value here', inline: true })
@@ -47,6 +47,6 @@ module.exports = {
             .setFooter({ text: `여기까지가 ${target.globalName}님의 정보`, iconURL: target.avatarURL() });
 
         await interaction.followUp({ embeds: [exampleEmbed] });
-        console.log(target.member);
+        //console.log(target.member);
     },
 };
