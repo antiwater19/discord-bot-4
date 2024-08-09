@@ -43,7 +43,10 @@ module.exports = {
             interaction.followUp('날짜를 다시 입력해주세요.');
             console.log(dateInfo);
         }
-
+        // 내용안에 띄워야 할것들
+        // 특보발효현황 시각 
+        // 발표시각 
+        // 측보 발효 현황 내용
 
     },
 }; 
