@@ -1,9 +1,9 @@
-const { SlashCommandBuilder, TextInputBuilder, TextInputStyle, ModalBuilder, ActionRowBuilder } = require('discord.js');
-const { wait, a } = require('partial-js');
+const { SlashCommandBuilder, TextInputBuilder, TextInputStyle, ModalBuilder, ActionRowBuilder, Events, ModalSubmitInteraction, ModalSubmitFields } = require('discord.js');
+const { wait, a, filter } = require('partial-js');
 
 module.exports = {
     // 명령어 쿨타임 cooldown변수 
-    cooldown: 5,
+    //cooldown: 5,
     data: new SlashCommandBuilder()
         .setName('input')
         .setDescription('입력한거 반환하기.'),
@@ -13,8 +13,10 @@ module.exports = {
             .setCustomId('Input_Data')
             .setTitle('뭐 입력하는 곳');
 
+
+
         const InputBox = new TextInputBuilder()
-            .setMaxLength(1000) // 글자 최대길이가 1000이 최대라는 뜻임
+            .setMaxLength(1_000) // 글자 최대길이가 1000이 최대라는 뜻임
             .setCustomId('input_data')
             //레이블은 이 입력에 대해 사용자에게 표시되는 프롬프트입니다.
             .setLabel("Input your data")
@@ -23,19 +25,24 @@ module.exports = {
             .setRequired(true)
             .setStyle(TextInputStyle.Short);
 
+
         const firstActionRow = new ActionRowBuilder().addComponents(InputBox);
+
         modal.addComponents(firstActionRow);
+
+        //submit
+
         await interaction.showModal(modal);
 
-        // editReply는 응답을 다시 바꾸는 것이다.
-        // await interaction.editReply({ content: 'Secret Pong!', ephemeral: true });
+        const filter = (interaction) => interaction.customId === 'Input_Data';
 
-        // 응답 삭제하기
-        // await interaction.deleteReply();
+        interaction.awaitModalSubmit({ filter, time: 30_000 }).then((modalInteraction) => {
+            const ddata = modalInteraction.fields.getTextInputValue('input_data')
+            console.log(ddata);
 
-        // followUp 자기가 했던말에 위에 답변으로 다는 것 (ephemeral: true는 개인에게 만 보이게 하는것)
-        await interaction.followUp({ content: 'ㅇㅇ', ephemeral: true })
-        const message = await interaction.fetchReply();
-        console.log(message);
+            modalInteraction.reply({ content: `입력한 데이터는 ${ddata} 입니다.` });
+        });
+
+
     },
 };
