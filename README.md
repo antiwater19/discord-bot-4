@@ -2,8 +2,8 @@
 ~~(내가볼려고 만든)~~
 ## 디스코드 봇 가이드 4탄
 ### 
-<br>
-<br>
+특보현황 띄울수 있는 기능 추가됨<br>
+replit으로 컴퓨터 없이도 봇을 온라인 시킬 수 있음<br>
 
 
 개발환경: <img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=#007ACC">, discord-developer-portal, <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=#5865F2">
