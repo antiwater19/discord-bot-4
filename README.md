@@ -5,7 +5,7 @@
 특보현황 띄울수 있는 기능 추가됨<br>
 replit으로 컴퓨터 없이도 봇을 온라인 시킬 수 있음<br>
 현재 입력칸 TextInputBox 제작중<br>
-
+가위바위보 기능 넣는 중<br>
 
 개발환경: <img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=#007ACC">, discord-developer-portal, <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=#5865F2">
 
